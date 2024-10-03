@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Axis</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Horizontal and vertical lines -->
+        <div class="horizontal-line"></div>
+        <div class="vertical-line"></div>
+
+        <!-- Text labels on each end of the horizontal line -->
+        <div class="label label-left">PRECIOUS</div>
+        <div class="label label-right">UTILITY</div>
+
+        <!-- Text labels on each end of the vertical line -->
+        <div class="label label-top">COLLECTIBLE</div>
+        <div class="label label-bottom">CONSUMABLE</div>
+
+        <!-- Quadrant labels -->
+        <div class="quadrant-label top-left">ARTIFACT</div>
+        <div class="quadrant-label top-right">FURNITURE</div>
+        <div class="quadrant-label bottom-left">EPHEMERA</div>
+        <div class="quadrant-label bottom-right">PROP</div>
+
+        <!-- Text labels along the vertical line -->
+        <div class="vertical-label-r vertical-label-r-touch" id="touch-label">TOUCH</div>
+        <div class="vertical-label-r vertical-label-r-object" id="object-label">OBJECT</div>
+        <div class="vertical-label-r vertical-label-r-staged">STAGED</div>
+
+        <div class="vertical-label-l vertical-label-l-touch">DON'T TOUCH</div>
+        <div class="vertical-label-l vertical-label-l-subject">SUBJECT</div>
+        <div class="vertical-label-l vertical-label-l-live">LIVE</div>
+    </div>
+
+    <!-- Interactive Image Layer -->
+    <div class="interactive-container">
+        <!-- Section A -->
+        <div class="image-container touch" style="top: 12.5%; left: 27.27%;" data-caption="A_Gober untitled 1990">
+            <img src="images/A_Gober untitled 1990.png" alt="Image 1">
+        </div>
+        <!-- Section E -->
+        <div class="image-container object" style="top: 88%; left: 48%;" data-caption="Burning Man 2022">
+            <img src="images/E_Burning Man.png" alt="Image 2-01">
+        </div>
+        <div class="image-container object" style="top: 80%; left: 40%;" data-caption="Jack O Lantern">
+            <img src="images/E_Jack o Lantern.png" alt="Image 2-02">
+        </div>
+        <!-- Section F -->
+        <div class="image-container touch" style="top: 12%; left: 52%;" data-caption="Catalina Ouyang Bitch Bench 2018">
+            <img src="images/F_Catalina Ouyang Bitch Bench 2018.png" alt="Image 3">
+        </div>
+        <!-- Section P -->
+        <div class="image-container" style="top: 75%; left: 60%;" data-caption="Isa Genzken Nofretete 2014">
+            <img src="images/P_Isa Genzken Nofretete 2014.png" alt="Image 4">
+        </div>
+    </div>
+
+    <!-- Center Display for Hover -->
+    <div class="center-display">
+        <img id="center-image" src="" alt="center image">
+        <p id="center-caption"></p>
+    </div>
+
+    <script>
+        const imageContainers = document.querySelectorAll('.image-container');
+        const centerImage = document.getElementById('center-image');
+        const centerCaption = document.getElementById('center-caption');
+        const centerDisplay = document.querySelector('.center-display');
+
+        imageContainers.forEach(container => {
+            const caption = container.getAttribute('data-caption');
+            const imageSrc = container.querySelector('img').src;
+
+            container.addEventListener('mouseover', function () {
+                centerImage.src = imageSrc;
+                centerCaption.textContent = caption;
+                centerDisplay.style.display = 'block'; // Make it visible
+            });
+
+            container.addEventListener('mouseout', function () {
+                centerDisplay.style.display = 'none'; // Hide when not hovering
+            });
+        });
+
+      // Function to apply a hue change
+function applyHueRotationToImage(imageSrc, hueValue) {
+    const imageElement = document.querySelector(`img[src="${imageSrc}"]`);
+    if (imageElement) {
+        imageElement.style.filter = `hue-rotate(${hueValue}deg)`; // Apply the blue hue filter
+    } else {
+        console.log("Image not found for source:", imageSrc); // Debugging message if not found
+    }
+}
+
+// When the 'TOUCH' label is clicked
+touchLabel.addEventListener('click', function () {
+    console.log('TOUCH label clicked!');  // Debugging log
+   
+    // Apply blue hue to the specific image
+    applyHueRotationToImage('images/E_Jack o Lantern.png', '180deg'); // Apply blue hue
+});
+
+        // When the 'TOUCH' label is clicked
+        touchLabel.addEventListener('click', function () {
+            applyHueRotation('touch', '180deg'); // Apply blue hue filter
+        });
+
+        // When the 'OBJECT' label is clicked
+        objectLabel.addEventListener('click', function () {
+            applyHueRotation('object', '90deg'); // Apply green hue filter
+        });
+    </script>
+</body>
+</html>
