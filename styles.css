@@ -264,6 +264,15 @@ color: tan;
     .label, .vertical-label {
         font-size: 2.2vmin; 
     }
+    .label-top {
+        left: calc(50% - 9vmin);
+        top: .2%;
+    }
+    
+    .label-bottom {
+        left: calc(50% - 9vmin);
+        bottom: .2%;
+    }
 
     .quadrant-label {
         font-size: 2.2vmin;
@@ -280,6 +289,34 @@ color: tan;
     .center-display p {
         font-size: 2.2vmin;
     }
+
+    .vertical-label-touch {
+        top: calc(25% - 8vmin);  /* Adjust vertical position */
+    }
+    
+  
+    
+    .vertical-label-object {
+        top: calc(50% - 6.5vmin); /* Adjust vertical position */
+    }
+    
+    .vertical-label-staged {
+        top: calc(75% - 6vmin);  /* Adjust vertical position */
+    }
+
+    .vertical-label-dont-touch {
+        top: calc(25% + 6vmin);   /* Adjust vertical position */
+      }
+    
+
+    .vertical-label-subject {
+        top: calc(50% + 4.5vmin); /* Adjust vertical position */
+     }
+
+    
+    .vertical-label-live {
+        top: calc(75% + 3vmin);  /* Adjust vertical position */
+        }
     
 }
 
