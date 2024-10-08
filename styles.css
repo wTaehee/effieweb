@@ -269,7 +269,7 @@ color: tan;
 }
 
 
-@media only screen and (max-width: 950px) {
+@media only screen and (max-width: 1080px) {
     .horizontal-line {
         top: 45%;
         width: 100%;
