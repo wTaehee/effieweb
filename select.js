@@ -16,36 +16,42 @@ function resetFilters() {
     });
 }
 
+// Function to change the color of images with a specific class
+function changeImageColorByClass(className, filterStyle) {
+    const targetedImages = document.querySelectorAll(`.image-container.${className}`);
+    targetedImages.forEach(image => {
+        image.querySelector('img').style.filter = filterStyle;
+    });
+}
+
 // Add event listeners for the labels
 
 dontTouchLabel.addEventListener('click', function() {
     resetFilters(); // Reset the filters first
-    // Apply a sepia filter with saturation to create a red tint for the first image
-    images[0].querySelector('img').style.filter = 'sepia(1) saturate(3) hue-rotate(280deg)'; // Red for first image
+    changeImageColorByClass('dont-touch', 'sepia(1) saturate(3) hue-rotate(280deg)'); // Red for images with 'dont-touch' class
 });
 
 touchLabel.addEventListener('click', function() {
     resetFilters(); // Reset the filters first
-    // Apply a sepia filter with saturation to create a blue tint for the second image 
-    images[1].querySelector('img').style.filter = 'sepia(1) saturate(3) hue-rotate(190deg)'; // Blue for second image
+    changeImageColorByClass('touch', 'sepia(1) saturate(3) hue-rotate(190deg)'); // Blue for images with 'touch' class
 });
 
 objectLabel.addEventListener('click', function() {
     resetFilters(); // Reset the filters first
-    images[2].querySelector('img').style.filter = 'sepia(1) saturate(3) hue-rotate(30deg)'; // Yellow for third image
+    changeImageColorByClass('object', 'sepia(1) saturate(3) hue-rotate(30deg)'); // Yellow for images with 'object' class
 });
 
 subjectLabel.addEventListener('click', function() {
     resetFilters(); // Reset the filters first
-    images[3].querySelector('img').style.filter = 'sepia(1) saturate(3) hue-rotate(300deg)'; // Purple for fourth image
+    changeImageColorByClass('subject', 'sepia(1) saturate(3) hue-rotate(300deg)'); // Purple for images with 'subject' class
 });
 
 liveLabel.addEventListener('click', function() {
     resetFilters(); // Reset the filters first
-    images[4].querySelector('img').style.filter = 'sepia(1) saturate(3) hue-rotate(360deg)'; // Orange for fifth image
+    changeImageColorByClass('live', 'sepia(1) saturate(3) hue-rotate(360deg)'); // Orange for images with 'live' class
 });
 
 stagedLabel.addEventListener('click', function() {
     resetFilters(); // Reset the filters first
-    images[5].querySelector('img').style.filter = 'sepia(1) saturate(3) hue-rotate(240deg)'; // Green for sixth image
+    changeImageColorByClass('staged', 'sepia(1) saturate(3) hue-rotate(240deg)'); // Green for images with 'staged' class
 });

@@ -124,7 +124,7 @@ html, body {
     color: black;
     cursor: pointer;
     transform-origin: left center;
-    transition: color 0.3s ease;
+    transition: color .3s ease;
 }
 
 /* Hover effect for pointer and color change */
