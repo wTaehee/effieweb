@@ -13,7 +13,7 @@ imageContainers.forEach(container => {
         centerDisplay.style.display = 'block'; // Make it visible
     });
 
-    container.addEventListener('mouseout', function () {
+    container.addEventListener('click', function () {
         centerDisplay.style.display = 'none'; // Hide when not hovering
     });
 });
