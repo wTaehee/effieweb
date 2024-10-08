@@ -260,7 +260,7 @@ color: tan;
 
 
 /* Media query for mobile view */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 850px) {
     .label, .vertical-label {
         font-size: 2vmin; 
     }
