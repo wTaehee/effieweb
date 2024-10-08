@@ -16,20 +16,8 @@ html, body {
     height: 100vh;
 }
 
-/* New Layer for Text Labels */
-.text-layer {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    z-index: 1; /* Ensure it is above the interactive image layer */
-    pointer-events: auto; /* Make it clickable */
-}
-
-
 /* Ensure the text labels are above the image containers */
-.label, .vertical-label-r, .vertical-label-l {
+.label, .vertical-label {
     position: absolute;
     font-size: 1.5vmin;
     font-family: Helvetica, Arial, sans-serif;
@@ -39,32 +27,6 @@ html, body {
     padding: 0 0.5em;
     z-index: 3; /* Higher than images */
     pointer-events: auto; /* Enable click events */
-}
-
-
-/* Center Display for Hover */
-.center-display {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    display: none; /* Hidden by default */
-    z-index: 5;
-}
-
-.center-display img {
-    width: 40vmin;
-    height: 40vmin;
-    object-fit: cover;
-    margin-bottom: 10px;
-}
-
-.center-display p {
-    font-size: 1.5vmin;
-    font-family: Helvetica, Arial, sans-serif;
-    font-weight: 600;
-    color: black;
 }
 
 /* Horizontal Line */
@@ -88,16 +50,6 @@ html, body {
 }
 
 /* Text labels on the ends of the horizontal and vertical lines */
-.label {
-    position: absolute;
-    font-size: 1.5vmin;
-    font-family: Helvetica, Arial, sans-serif;
-    font-weight: 600;
-    color: black;
-    background-color: white;
-    padding: 0 0.5em;
-}
-
 .label-left {
     top: calc(50% - 0.75vmin);
     left: 0;
@@ -151,60 +103,110 @@ html, body {
     right: 25%;
 }
 
-/* Text along the vertical line right side*/
-.vertical-label-r {
+/* Text labels along the vertical line */
+.vertical-label {
     position: absolute;
-    left: calc(50% + 2vmin); /* Slightly offset from the vertical line */
     font-size: 1.5vmin;
     font-family: Helvetica, Arial, sans-serif;
     font-weight: 600;
     color: black;
-    transform: rotate(90deg); /* Rotate 90 degrees */
-    transform-origin: left center; /* Ensures rotation is around the left side */
+    cursor: pointer;
+    transform-origin: left center;
+    transition: color 0.3s ease;
 }
 
-/* "Touch" text between top and center */
+/* Hover effect for pointer and color change */
+.vertical-label:hover {
+    cursor: pointer;
+
+}
+
+/* Specific label positions and rotations */
 .vertical-label-r-touch {
-    top: calc(25% - 3vmin);
+    left: calc(50% + 1vmin); /* Adjust distance from vertical line */
+    top: calc(25% - 4vmin);  /* Adjust vertical position */
+    transform: rotate(90deg); /* Rotate text to the left (clockwise) */
 }
 
-/* "Object" text at the center */
+.vertical-label-r-touch:hover {
+    color: blue;
+}
+
+
 .vertical-label-r-object {
-    top:calc(50% - 3vmin);
-    transform: translateY(-50%) rotate(90deg); /* Adjusted to center and rotate */
+    left: calc(50% + 1vmin); /* Adjust distance from vertical line */
+    top: calc(50% - 4vmin); /* Adjust vertical position */
+    transform: rotate(90deg); /* Rotate text to the left (clockwise) */
 }
 
-/* "Staged" text between center and bottom */
+.vertical-label-r-object:hover {
+    color: lawngreen;
+}
+
+
 .vertical-label-r-staged {
-    top:calc(75% - 3vmin)
+    left: calc(50% + 1vmin); /* Adjust distance from vertical line */
+    top: calc(75% - 4vmin);  /* Adjust vertical position */
+    transform: rotate(90deg); /* Rotate text to the left (clockwise) */
 }
 
-/* Text along the vertical line left side*/
-.vertical-label-l {
-    position: absolute;
-    left: calc(50% - 2vmin); /* Slightly offset from the vertical line */
+.vertical-label-r-staged:hover {
+   color:orchid;
+}
+
+.vertical-label-l-touch {
+    left: calc(50% - 1vmin); /*Adjust distance from vertical line */
+    top: calc(25% + 5vmin);   /* Adjust vertical position */
+    transform: rotate(-90deg); /* Rotate text to the right (counterclockwise) */
+}
+
+.vertical-label-l-touch:hover {
+color:red;
+}
+
+.vertical-label-l-subject {
+    left: calc(50% - 1vmin); /* Adjust distance from vertical line */
+    top: calc(50% + 3.5vmin); /* Adjust vertical position */
+    transform: rotate(-90deg); /* Rotate text to the right (counterclockwise) */
+}
+
+.vertical-label-l-subject:hover {
+    color: orange
+}
+
+.vertical-label-l-live {
+    left: calc(50% - 1vmin); /* Adjust distance from vertical line */
+    top: calc(75% + 2vmin);  /* Adjust vertical position */
+    transform: rotate(-90deg); /* Rotate text to the right (counterclockwise) */
+}
+
+.vertical-label-l-live:hover {
+color: tan;
+}
+
+/* Center Display for Hover */
+.center-display {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: none; /* Hidden by default */
+    z-index: 5;
+}
+
+.center-display img {
+    width: 40vmin;
+    height: 40vmin;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.center-display p {
     font-size: 1.5vmin;
     font-family: Helvetica, Arial, sans-serif;
     font-weight: 600;
     color: black;
-    transform: rotate(-90deg); /* Rotate 90 degrees */
-    transform-origin: left center; /* Ensures rotation is around the left side */
-}
-
-/* "Touch" text between top and center */
-.vertical-label-l-touch {
-    top: calc(25% + 5vmin);
-}
-
-/* "Object" text at the center */
-.vertical-label-l-subject {
-    top:calc(50% + 3.5vmin);
-    transform: translateY(-50%) rotate(-90deg); /* Adjusted to center and rotate */
-}
-
-/* "Staged" text between center and bottom */
-.vertical-label-l-live {
-    top:calc(75% + 2vmin)
 }
 
 /* Second Layer: Interactive Images and Dots */
@@ -217,7 +219,6 @@ html, body {
     z-index: 0; /* Ensure it is below the text labels */
     pointer-events: none; /* Disable interaction with this layer */
 }
-
 
 .image-container {
     position: absolute;
@@ -234,26 +235,5 @@ html, body {
     transition: filter 0.3s ease; /* Smooth transition for hue change */
 }
 
-/* .dot {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 1vmin; 
-    height: 1vmin; 
-    background-color: rgb(0, 0, 0);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-  }
-   */
-  .hover-text {
-    position: absolute;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 5px;
-    font-size: 1.2vmin;
-    border-radius: 5px;
-    visibility: hidden;
-    z-index: 2;
-  }
-  
+
+
