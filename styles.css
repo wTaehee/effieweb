@@ -247,25 +247,12 @@ color: tan;
 
 /* Media query for mobile view */
 @media only screen and (max-width: 600px) {
-    .horizontal-line {
-        top: 40%;
-        width: 100%;
-    }
-
+   
     .vertical-line {
-        height: 80%; 
+        height: 75%; 
         top: 3.5%; /* Center it vertically */
     }
 
-    .label-left {
-        top: 40%;
-        left: 0;
-    }
-    
-    .label-right {
-        top: 40%;
-        right: 0;
-    }
     .label-top {
         left: calc(50% - 6vmin);
         top: 9.5%;
@@ -273,17 +260,13 @@ color: tan;
     
     .label-bottom {
         left: calc(50% - 6vmin);
-        bottom: 13.5%;
+        bottom: 15.5%;
     }
 }
 
 
 @media only screen and (max-width: 1080px) {
-    .horizontal-line {
-        top: 45%;
-        width: 100%;
-    
-    }
+
     
     .vertical-line {
         height: 95%; 
