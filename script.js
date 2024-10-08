@@ -46,17 +46,19 @@ function resetFilters() {
 }
 
 // Add event listeners for the labels
-touchLabel.addEventListener('click', function() {
-    resetFilters(); // Reset the filters first
-    // Apply a sepia filter with saturation to create a blue tint for Image 2 
-    image2.querySelector('img').style.filter = 'sepia(1) saturate(3) hue-rotate(190deg)'; // Blue for Image 2
-});
 
 dontTouchLabel.addEventListener('click', function() {
     resetFilters(); // Reset the filters first
     // Apply a sepia filter with saturation to create a red tint for Image 1
     image1.querySelector('img').style.filter = 'sepia(1) saturate(3) hue-rotate(360deg)'; // Red for Image 1
 });
+
+touchLabel.addEventListener('click', function() {
+    resetFilters(); // Reset the filters first
+    // Apply a sepia filter with saturation to create a blue tint for Image 2 
+    image2.querySelector('img').style.filter = 'sepia(1) saturate(3) hue-rotate(190deg)'; // Blue for Image 2
+});
+
 
 
 objectLabel.addEventListener('click', function() {
@@ -68,7 +70,7 @@ objectLabel.addEventListener('click', function() {
 subjectLabel.addEventListener('click', function() {
     resetFilters(); // Reset the filters first
 
-    image4.querySelector('img').style.filter = 'sepia(1) saturate(3) hue-rotate(240deg)'; 
+    image4.querySelector('img').style.filter = 'sepia(1) saturate(3) hue-rotate(300deg)'; 
 });
 
 liveLabel.addEventListener('click', function() {
@@ -80,5 +82,5 @@ liveLabel.addEventListener('click', function() {
 stagedLabel.addEventListener('click', function() {
     resetFilters(); // Reset the filters first
   
-    image6.querySelector('img').style.filter = 'sepia(1) saturate(3) hue-rotate(300deg)'; 
+    image6.querySelector('img').style.filter = 'sepia(1) saturate(3) hue-rotate(240deg)'; 
 });
