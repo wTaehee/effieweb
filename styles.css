@@ -267,8 +267,8 @@ color: tan;
     }
     .interactive-container {
         position: absolute;
-        width: 90vw;
-        height: 86vh;
+        width: 88vw;
+        height: 84vh;
         top: 0;
         left: 0;
         z-index: 0; /* Ensure it is below the text labels */
@@ -297,7 +297,7 @@ color: tan;
     .interactive-container {
         position: absolute;
         width: 98vw;
-        height: 92vh;
+        height: 85vh;
         top: 0;
         left: 0;
         z-index: 0; /* Ensure it is below the text labels */
