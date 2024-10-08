@@ -262,23 +262,23 @@ color: tan;
 /* Media query for mobile view */
 @media only screen and (max-width: 850px) {
     .label, .vertical-label {
-        font-size: 2vmin; 
+        font-size: 2.2vmin; 
     }
 
     .quadrant-label {
-        font-size: 2vmin;
+        font-size: 2.2vmin;
     }
     .vertical-label {
-        font-size: 2vmin;
+        font-size: 2.2vmin;
     }
 
     .center-display img {
-        width: 50vmin;
-        height: 50vmin;
+        width: 55vmin;
+        height: 55vmin;
     }
     
     .center-display p {
-        font-size: 2vmin;
+        font-size: 2.2vmin;
     }
     
 }
