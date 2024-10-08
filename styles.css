@@ -257,6 +257,15 @@ color: tan;
         top: 3.5%; /* Center it vertically */
     }
 
+    .label-left {
+        top: 40%;
+        left: 0;
+    }
+    
+    .label-right {
+        top: 40%;
+        right: 0;
+    }
     .label-top {
         left: calc(50% - 6vmin);
         top: 5.5%;
