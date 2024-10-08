@@ -264,6 +264,15 @@ color: tan;
         left: calc(50% - 6vmin);
         bottom: 15.5%;
     }
+    .interactive-container {
+        position: absolute;
+        width: 90vw;
+        height: 90vh;
+        top: 0;
+        left: 0;
+        z-index: 0; /* Ensure it is below the text labels */
+        pointer-events: none; /* Disable interaction with this layer */
+    }
 }
 
 
