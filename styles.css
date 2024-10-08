@@ -204,6 +204,7 @@ color: tan;
     text-align: center;
     display: none; /* Hidden by default */
     z-index: 5;
+    pointer-events: none; /* Disable interaction with this layer */
 }
 
 .center-display img {
@@ -248,7 +249,7 @@ color: tan;
 .full-viewport-height {
     height: 100vh;
   }
-  
+
 @supports (height: 100dvh) {
     .full-viewport-height {
       height: 100dvh;
