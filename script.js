@@ -7,13 +7,13 @@ imageContainers.forEach(container => {
     const caption = container.getAttribute('data-caption');
     const imageSrc = container.querySelector('img').src;
 
-    container.addEventListener('mouseenter', function () {
+    container.addEventListener('mouseover', function () {
         centerImage.src = imageSrc;
         centerCaption.textContent = caption;
         centerDisplay.style.display = 'block'; // Make it visible
     });
 
-    container.addEventListener('mouseleave', function () {
+    container.addEventListener('click', function () {
         centerDisplay.style.display = 'none'; // Hide when not hovering
     });
 });
