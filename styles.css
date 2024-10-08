@@ -268,7 +268,7 @@ color: tan;
     .interactive-container {
         position: absolute;
         width: 90vw;
-        height: 84vh;
+        height: 86vh;
         top: 0;
         left: 0;
         z-index: 0; /* Ensure it is below the text labels */
@@ -293,5 +293,14 @@ color: tan;
     .label-bottom {
         left: calc(50% - 6vmin);
         bottom: 11.5%;
+    }
+    .interactive-container {
+        position: absolute;
+        width: 98vw;
+        height: 92vh;
+        top: 0;
+        left: 0;
+        z-index: 0; /* Ensure it is below the text labels */
+        pointer-events: none; /* Disable interaction with this layer */
     }
 }
