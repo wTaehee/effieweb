@@ -207,6 +207,7 @@ color: tan;
     pointer-events: none; /* Disable interaction with this layer */
 }
 
+
 .center-display img {
     width: 40vmin;
     height: 40vmin;
