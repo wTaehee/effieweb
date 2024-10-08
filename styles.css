@@ -245,7 +245,10 @@ color: tan;
     object-fit: contain;
     transition: filter 0.3s ease; /* Smooth transition for hue change */
 }
-
+.full-viewport-height {
+    height: 100vh;
+  }
+  
 @supports (height: 100dvh) {
     .full-viewport-height {
       height: 100dvh;
