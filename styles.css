@@ -253,7 +253,7 @@ color: tan;
     }
 
     .vertical-line {
-        height: 85%; 
+        height: 80%; 
         top: 3.5%; /* Center it vertically */
     }
 
@@ -268,12 +268,12 @@ color: tan;
     }
     .label-top {
         left: calc(50% - 6vmin);
-        top: 5.5%;
+        top: 9.5%;
     }
     
     .label-bottom {
         left: calc(50% - 6vmin);
-        bottom: 11.5%;
+        bottom: 13.5%;
     }
 }
 
