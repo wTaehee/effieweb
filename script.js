@@ -50,7 +50,7 @@ function resetFilters() {
 dontTouchLabel.addEventListener('click', function() {
     resetFilters(); // Reset the filters first
     // Apply a sepia filter with saturation to create a red tint for Image 1
-    image1.querySelector('img').style.filter = 'sepia(1) saturate(3) hue-rotate(360deg)'; // Red for Image 1
+    image1.querySelector('img').style.filter = 'sepia(1) saturate(3) hue-rotate(280deg)'; // Red for Image 1
 });
 
 touchLabel.addEventListener('click', function() {
@@ -64,7 +64,7 @@ touchLabel.addEventListener('click', function() {
 objectLabel.addEventListener('click', function() {
     resetFilters(); // Reset the filters first
    
-    image3.querySelector('img').style.filter = 'sepia(1) saturate(3) hue-rotate(20deg)'; 
+    image3.querySelector('img').style.filter = 'sepia(1) saturate(3) hue-rotate(30deg)'; 
 });
 
 subjectLabel.addEventListener('click', function() {
