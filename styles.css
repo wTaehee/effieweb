@@ -118,7 +118,6 @@ html, body {
 /* Hover effect for pointer and color change */
 .vertical-label:hover {
     cursor: pointer;
-
 }
 
 /* Specific label positions and rotations */
@@ -236,4 +235,20 @@ color: tan;
 }
 
 
+/* Media query for mobile view */
+@media only screen and (max-width: 600px) {
+    .vertical-line {
+        height: 93%; /* Make it 7% shorter than the full height */
+        top: 3.5%; /* Center it vertically */
+    }
 
+    .label-top {
+        left: calc(50% - 6vmin);
+        top: 3.5%;
+    }
+    
+    .label-bottom {
+        left: calc(50% - 6vmin);
+        bottom: 3.5%;
+    }
+}
