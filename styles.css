@@ -19,7 +19,7 @@ html, body {
 /* Ensure the text labels are above the image containers */
 .label, .vertical-label {
     position: absolute;
-    font-size: 1.5vmin;
+    font-size: 1.7vmin;
     font-family: Helvetica, Arial, sans-serif;
     font-weight: 600;
     color: black;
@@ -73,19 +73,19 @@ html, body {
 }
 
 .label-top {
-    left: calc(50% - 6vmin);
+    left: calc(50% - 7vmin);
     top: 0;
 }
 
 .label-bottom {
-    left: calc(50% - 6vmin);
+    left: calc(50% - 7vmin);
     bottom: 0;
 }
 
 /* Quadrant labels */
 .quadrant-label {
     position: absolute;
-    font-size: 1.5vmin;
+    font-size: 1.7vmin;
     font-family: Helvetica, Arial, sans-serif;
     font-weight: 600;
     color: black;
@@ -118,7 +118,7 @@ html, body {
 /* Text labels along the vertical line */
 .vertical-label {
     position: absolute;
-    font-size: 1.5vmin;
+    font-size: 1.7vmin;
     font-family: Helvetica, Arial, sans-serif;
     font-weight: 600;
     color: black;
@@ -134,7 +134,7 @@ html, body {
 
 /* Specific label positions and rotations */
 .vertical-label-touch {
-    left: calc(50% + 1vmin); /* Adjust distance from vertical line */
+    left: calc(50% + 1.25vmin); /* Adjust distance from vertical line */
     top: calc(25% - 4vmin);  /* Adjust vertical position */
     transform: rotate(90deg); /* Rotate text to the left (clockwise) */
 }
@@ -145,8 +145,8 @@ html, body {
 
 
 .vertical-label-object {
-    left: calc(50% + 1vmin); /* Adjust distance from vertical line */
-    top: calc(50% - 4vmin); /* Adjust vertical position */
+    left: calc(50% + 1.25vmin); /* Adjust distance from vertical line */
+    top: calc(50% - 5vmin); /* Adjust vertical position */
     transform: rotate(90deg); /* Rotate text to the left (clockwise) */
 }
 
@@ -156,7 +156,7 @@ html, body {
 
 
 .vertical-label-staged {
-    left: calc(50% + 1vmin); /* Adjust distance from vertical line */
+    left: calc(50% + 1.25vmin); /* Adjust distance from vertical line */
     top: calc(75% - 4vmin);  /* Adjust vertical position */
     transform: rotate(90deg); /* Rotate text to the left (clockwise) */
 }
@@ -166,7 +166,7 @@ html, body {
 }
 
 .vertical-label-dont-touch {
-    left: calc(50% - 1vmin); /*Adjust distance from vertical line */
+    left: calc(50% - 1.25vmin); /*Adjust distance from vertical line */
     top: calc(25% + 5vmin);   /* Adjust vertical position */
     transform: rotate(-90deg); /* Rotate text to the right (counterclockwise) */
 }
@@ -176,7 +176,7 @@ color:red;
 }
 
 .vertical-label-subject {
-    left: calc(50% - 1vmin); /* Adjust distance from vertical line */
+    left: calc(50% - 1.25vmin); /* Adjust distance from vertical line */
     top: calc(50% + 3.5vmin); /* Adjust vertical position */
     transform: rotate(-90deg); /* Rotate text to the right (counterclockwise) */
 }
@@ -186,7 +186,7 @@ color:red;
 }
 
 .vertical-label-live {
-    left: calc(50% - 1vmin); /* Adjust distance from vertical line */
+    left: calc(50% - 1.25vmin); /* Adjust distance from vertical line */
     top: calc(75% + 2vmin);  /* Adjust vertical position */
     transform: rotate(-90deg); /* Rotate text to the right (counterclockwise) */
 }
@@ -214,7 +214,7 @@ color: tan;
 }
 
 .center-display p {
-    font-size: 1.5vmin;
+    font-size: 1.7vmin;
     font-family: Helvetica, Arial, sans-serif;
     font-weight: 600;
     color: black;
