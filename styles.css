@@ -268,9 +268,9 @@ color: tan;
     .interactive-container {
         position: absolute;
         width: 91vw;
-        height: 84vh;
+        height: 86vh;
         top: 0;
-        left: 7%;
+        left: 10%;
         z-index: 0; /* Ensure it is below the text labels */
         pointer-events: none; /* Disable interaction with this layer */
     }
@@ -297,7 +297,7 @@ color: tan;
     .interactive-container {
         position: absolute;
         width: 98vw;
-        height: 80vh;
+        height: 82vh;
         top: 0;
         left: 0;
         z-index: 0; /* Ensure it is below the text labels */
