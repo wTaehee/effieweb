@@ -260,47 +260,26 @@ color: tan;
 
 
 /* Media query for mobile view */
-/* @media only screen and (max-width: 750px) {
-   
-    .vertical-line {
-        height: 70%; 
-        top: 3.5%; 
-        bottom: 5%;
+@media only screen and (max-width: 600px) {
+    .label, .vertical-label {
+        font-size: 2vmin; 
     }
 
-    .label-top {
-        left: calc(50% - 6vmin);
-        top: 13.5%;
+    .quadrant-label {
+        font-size: 2vmin;
+    }
+    .vertical-label {
+        font-size: 2vmin;
+    }
+
+    .center-display img {
+        width: 50vmin;
+        height: 50vmin;
     }
     
-    .label-bottom {
-        left: calc(50% - 6vmin);
-        bottom: 15.5%;
+    .center-display p {
+        font-size: 2vmin;
     }
-    .interactive-container {
-        position: absolute;
-        width: 91vw;
-        height: 86vh;
-        top: 0;
-        left: 10%;
-        z-index: 0; 
-        pointer-events: none; 
-    }
+    
 }
 
-
-@media only screen and (max-width: 1080px) {
-
-    
-    .vertical-line {
-        height: 95%; 
-        top: 3.5%; 
-    }
-
-    .label-top {
-        left: calc(50% - 6vmin);
-        top: 2.5%;
-    }
-    
-
-} */
