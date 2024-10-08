@@ -253,7 +253,7 @@ color: tan;
     .vertical-line {
         height: 70%; 
         top: 3.5%; /* Center it vertically */
-        bottom: 10%;
+        bottom: 5%;
     }
 
     .label-top {
