@@ -89,6 +89,7 @@ html, body {
     font-family: Helvetica, Arial, sans-serif;
     font-weight: 600;
     color: black;
+    pointer-events: none; /* Disable interaction with this layer */
 }
 
 /* Top Left Quadrant */
