@@ -27,6 +27,10 @@ html, body {
     padding: 0 0.5em;
     z-index: 3; /* Higher than images */
     pointer-events: auto; /* Enable click events */
+    -webkit-user-select: none; /* For Safari */
+    -moz-user-select: none;    /* For Firefox */
+    -ms-user-select: none;     /* For IE and Edge */
+    user-select: none;         /* Standard */
 }
 
 /* Horizontal Line */
