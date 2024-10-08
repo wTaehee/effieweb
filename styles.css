@@ -59,6 +59,8 @@ html, body {
     background-color: black;
 }
 
+
+
 /* Text labels on the ends of the horizontal and vertical lines */
 .label-left {
     top: calc(50% - 0.75vmin);
@@ -131,65 +133,65 @@ html, body {
 }
 
 /* Specific label positions and rotations */
-.vertical-label-r-touch {
+.vertical-label-touch {
     left: calc(50% + 1vmin); /* Adjust distance from vertical line */
     top: calc(25% - 4vmin);  /* Adjust vertical position */
     transform: rotate(90deg); /* Rotate text to the left (clockwise) */
 }
 
-.vertical-label-r-touch:hover {
+.vertical-label-touch:hover {
     color: blue;
 }
 
 
-.vertical-label-r-object {
+.vertical-label-object {
     left: calc(50% + 1vmin); /* Adjust distance from vertical line */
     top: calc(50% - 4vmin); /* Adjust vertical position */
     transform: rotate(90deg); /* Rotate text to the left (clockwise) */
 }
 
-.vertical-label-r-object:hover {
+.vertical-label-object:hover {
     color: lawngreen;
 }
 
 
-.vertical-label-r-staged {
+.vertical-label-staged {
     left: calc(50% + 1vmin); /* Adjust distance from vertical line */
     top: calc(75% - 4vmin);  /* Adjust vertical position */
     transform: rotate(90deg); /* Rotate text to the left (clockwise) */
 }
 
-.vertical-label-r-staged:hover {
+.vertical-label-staged:hover {
    color:orchid;
 }
 
-.vertical-label-l-touch {
+.vertical-label-dont-touch {
     left: calc(50% - 1vmin); /*Adjust distance from vertical line */
     top: calc(25% + 5vmin);   /* Adjust vertical position */
     transform: rotate(-90deg); /* Rotate text to the right (counterclockwise) */
 }
 
-.vertical-label-l-touch:hover {
+.vertical-label-dont-touch:hover {
 color:red;
 }
 
-.vertical-label-l-subject {
+.vertical-label-subject {
     left: calc(50% - 1vmin); /* Adjust distance from vertical line */
     top: calc(50% + 3.5vmin); /* Adjust vertical position */
     transform: rotate(-90deg); /* Rotate text to the right (counterclockwise) */
 }
 
-.vertical-label-l-subject:hover {
+.vertical-label-subject:hover {
     color: orange
 }
 
-.vertical-label-l-live {
+.vertical-label-live {
     left: calc(50% - 1vmin); /* Adjust distance from vertical line */
     top: calc(75% + 2vmin);  /* Adjust vertical position */
     transform: rotate(-90deg); /* Rotate text to the right (counterclockwise) */
 }
 
-.vertical-label-l-live:hover {
+.vertical-label-live:hover {
 color: tan;
 }
 
@@ -207,7 +209,7 @@ color: tan;
 .center-display img {
     width: 40vmin;
     height: 40vmin;
-    object-fit: cover;
+    object-fit: contain;
     margin-bottom: 10px;
 }
 
@@ -218,7 +220,7 @@ color: tan;
     color: black;
 }
 
-/* Second Layer: Interactive Images and Dots */
+/* Second Layer: Interactive Images*/
 .interactive-container {
     position: absolute;
     width: 100vw;
@@ -240,7 +242,7 @@ color: tan;
 .image-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: filter 0.3s ease; /* Smooth transition for hue change */
 }
 
@@ -255,7 +257,7 @@ color: tan;
 
     .label-top {
         left: calc(50% - 6vmin);
-        top: 9.5%;
+        top: 13.5%;
     }
     
     .label-bottom {
