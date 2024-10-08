@@ -74,12 +74,12 @@ html, body {
 
 .label-top {
     left: calc(50% - 7vmin);
-    top: 0;
+    top: .2%;
 }
 
 .label-bottom {
     left: calc(50% - 7vmin);
-    bottom: 0;
+    bottom: .2%;
 }
 
 /* Quadrant labels */
