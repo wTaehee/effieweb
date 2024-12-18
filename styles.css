@@ -357,12 +357,12 @@ color: tan;
     }
 
     .center-display img {
-        width: 55vmin;
-        height: 55vmin;
+        width: 65vmin;
+        height: 65vmin;
     }
     
     .center-display p {
-        font-size: 2.2vmin;
+        font-size: 2.8vmin;
     }
 
     .vertical-label-touch {
