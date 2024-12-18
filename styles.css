@@ -286,6 +286,7 @@ color: tan;
     font-weight: normal;
     color: black;
     background-color: white;
+    max-width: 40vw;
     margin:0;
 }
 
