@@ -249,6 +249,22 @@ color: tan;
     object-fit: contain;
     transition: filter 0.3s ease; /* Smooth transition for hue change */
 }
+
+#center-title {
+    font-size: 1.8vmin;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    color: black;
+}
+
+#center-body {
+    font-size: 1.5vmin;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    color: black;
+}
+
 .full-viewport-height {
     height: 100vh;
   }
@@ -261,7 +277,7 @@ color: tan;
 
 
 /* Media query for mobile view */
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 900px) {
     .label, .vertical-label {
         font-size: 2.2vmin; 
     }

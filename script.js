@@ -1,46 +1,45 @@
 const imageContainers = document.querySelectorAll('.image-container');
 const centerImage = document.getElementById('center-image');
-const centerCaption = document.getElementById('center-caption');
+const centerTitle = document.getElementById('center-title');
+const centerBody = document.getElementById('center-body');
 const centerDisplay = document.querySelector('.center-display');
 
-
-// Variable to track if an image has been clicked
 let isImageClicked = false;
 
 imageContainers.forEach(container => {
-    const caption = container.getAttribute('data-caption');
+    const title = container.getAttribute('data-title');
+    const body = container.getAttribute('data-body');
     const imageSrc = container.querySelector('img').src;
 
-    // Show image and caption on mouseenter
+    // Show image, title, and body on mouseenter
     container.addEventListener('mouseenter', function () {
-        if (!isImageClicked) { // Only update if no image is clicked
+        if (!isImageClicked) {
             centerImage.src = imageSrc;
-            centerCaption.textContent = caption;
-            centerDisplay.style.display = 'block'; // Make it visible
+            centerTitle.textContent = title;
+            centerBody.textContent = body;
+            centerDisplay.style.display = 'block';
         }
     });
 
     // Toggle display on click
     container.addEventListener('click', function () {
         if (isImageClicked) {
-            // If already clicked, hide the display
             centerDisplay.style.display = 'none';
             isImageClicked = false;
         } else {
-            // If not clicked, display stays visible
             centerImage.src = imageSrc;
-            centerCaption.textContent = caption;
-            centerDisplay.style.display = 'block'; // Keep it visible after click
-            isImageClicked = true; // Set the flag
+            centerTitle.textContent = title;
+            centerBody.textContent = body;
+            centerDisplay.style.display = 'block';
+            isImageClicked = true;
         }
     });
 });
 
-// Click outside images to hide the display
+// Hide display on clicking outside
 document.addEventListener('click', function (event) {
-    // Check if the click happened outside the image containers and the center display
     if (!event.target.closest('.image-container') && !event.target.closest('.center-display')) {
-        centerDisplay.style.display = 'none'; // Hide the center display
-        isImageClicked = false; // Reset the flag
+        centerDisplay.style.display = 'none';
+        isImageClicked = false;
     }
 });
