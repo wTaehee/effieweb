@@ -392,6 +392,10 @@ color: tan;
     .vertical-label-live {
         top: calc(75% + 3vmin);  /* Adjust vertical position */
         }
+
+#center-body {
+            max-width: 60vw;
+        }
     
 }
 
