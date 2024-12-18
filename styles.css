@@ -246,16 +246,30 @@ color: tan;
 
 .center-content {
     display: flex;
-    flex-direction: column; /* Align items vertically */
+    flex-direction: column;
     align-items: center; /* Center-align all content */
-    gap: 5px; /* Ensure 8px gap between image, title, and body */
+    gap: 8px; /* Consistent gap between elements */
 }
 
-.center-display img {
+.image-wrapper {
+    height: 70vmin; /* Adjust the size of the container */
+    aspect-ratio: 2 / 1; /* Maintains a square aspect ratio */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.image-wrapper img {
+    width: auto;
+    height: 100%;
+    object-fit: contain; /* Ensures the image scales without cropping */
+}
+
+/* .center-display img {
     width: 65vmin;
     height: 65vmin;
     object-fit: contain;
-}
+} */
 
 #center-title {
     font-size: 2.2vmin;
