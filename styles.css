@@ -252,7 +252,7 @@ color: tan;
 }
 
 .image-wrapper {
-    height: 70vmin; /* Adjust the size of the container */
+    height: 65vmin; /* Adjust the size of the container */
     aspect-ratio: 2 / 1; /* Maintains a square aspect ratio */
     display: flex;
     justify-content: center;
