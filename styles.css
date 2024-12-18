@@ -271,13 +271,16 @@ color: tan;
     object-fit: contain;
 } */
 
+.text-background {
+    background-color: white;
+}
+
 #center-title {
     font-size: 2.2vmin;
     font-family: Helvetica, Arial, sans-serif;
     font-weight: bold;
     /* margin-bottom: 0.2em; */
     color: black;
-    background-color: white;
 }
 
 #center-body {
@@ -285,7 +288,6 @@ color: tan;
     font-family: Helvetica, Arial, sans-serif;
     font-weight: normal;
     color: black;
-    background-color: white;
     max-width: 40vw;
     margin:0;
 }
