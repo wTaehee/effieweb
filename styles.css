@@ -272,6 +272,7 @@ color: tan;
 } */
 
 .text-background {
+    padding: 1.25%;
     background-color: white;
 }
 
