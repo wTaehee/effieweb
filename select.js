@@ -17,6 +17,10 @@ function resetFilters() {
     images.forEach(image => {
         image.querySelector('img').style.filter = 'none'; // Reset filter for each image
     });
+
+    // Reset all button colors by removing the active class
+    const allLabels = [touchLabel, dontTouchLabel, objectLabel, subjectLabel, liveLabel, stagedLabel];
+    allLabels.forEach(label => label.classList.remove('active'));
 }
 
 // Function to change the color of images with a specific class
@@ -27,42 +31,41 @@ function changeImageColorByClass(className, filterStyle) {
     });
 }
 
-// Function to toggle the filters based on the label
+// Function to toggle the filters and button styles based on the label
 function toggleLabel(label, className, filterStyle) {
     // Check if the label is the currently active label
     if (activeLabel === label) {
-        // If it's the active label, reset the filters
-        resetFilters();
-        activeLabel = null; // Deselect the active label
+        resetFilters(); // Reset everything
+        activeLabel = null;
     } else {
-        // If it's not the active label, set it as active and change the filter
-        resetFilters(); // Reset the filters first
+        resetFilters(); // Reset first
         changeImageColorByClass(className, filterStyle);
-        activeLabel = label; // Set the label as active
+        label.classList.add('active'); // Highlight the active label
+        activeLabel = label;
     }
 }
 
 // Add event listeners for the labels
 dontTouchLabel.addEventListener('click', function() {
-    toggleLabel(dontTouchLabel, 'dont-touch', 'sepia(1) saturate(3) hue-rotate(280deg)'); // Red for images with 'dont-touch' class
+    toggleLabel(dontTouchLabel, 'dont-touch', 'sepia(3) saturate(1) hue-rotate(280deg)'); // Red
 });
 
 touchLabel.addEventListener('click', function() {
-    toggleLabel(touchLabel, 'touch', 'sepia(1) saturate(3) hue-rotate(190deg)'); // Blue for images with 'touch' class
+    toggleLabel(touchLabel, 'touch', 'sepia(3) saturate(1) hue-rotate(190deg)'); // Blue
 });
 
 objectLabel.addEventListener('click', function() {
-    toggleLabel(objectLabel, 'object', 'sepia(1) saturate(3) hue-rotate(30deg)'); // Yellow for images with 'object' class
+    toggleLabel(objectLabel, 'object', 'sepia(3) saturate(1) hue-rotate(30deg)'); // Yellow
 });
 
 subjectLabel.addEventListener('click', function() {
-    toggleLabel(subjectLabel, 'subject', 'sepia(1) saturate(3) hue-rotate(300deg)'); // Purple for images with 'subject' class
+    toggleLabel(subjectLabel, 'subject', 'sepia(3) saturate(1) hue-rotate(300deg)'); // Purple
 });
 
 liveLabel.addEventListener('click', function() {
-    toggleLabel(liveLabel, 'live', 'sepia(1) saturate(3) hue-rotate(360deg)'); // Orange for images with 'live' class
+    toggleLabel(liveLabel, 'live', 'sepia(3) saturate(1) hue-rotate(360deg)'); // Orange
 });
 
 stagedLabel.addEventListener('click', function() {
-    toggleLabel(stagedLabel, 'staged', 'sepia(1) saturate(3) hue-rotate(240deg)'); // Green for images with 'staged' class
+    toggleLabel(stagedLabel, 'staged', 'sepia(3) saturate(1) hue-rotate(240deg)'); // Green
 });
