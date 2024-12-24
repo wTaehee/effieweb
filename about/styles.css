@@ -31,4 +31,7 @@ a {
   .content {
     text-align: center;
 }
-  
+
+p {
+    margin-bottom: 0.2em;
+}
