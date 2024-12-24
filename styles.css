@@ -7,7 +7,70 @@
 html, body {
     height: 100%;
     width: 100%;
+    display: flex;
     overflow: hidden; /* Prevent scrollbars */
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+  }
+
+#container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.page {
+    transition: all 0.5s ease-in-out;
+    height: 100%;
+}
+.left {
+    width: 100%; /* Default full width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right {
+    width: 0; /* Initially hidden */
+    background-color: #2196f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    
+}
+
+/* Active state for pages */
+.page.active.left {
+    width: 100%; /* Shrinks to 70% width */
+}
+
+.page.active.right {
+    width: 30%; /* Expands to 30% width */
+    visibility: visible; /* Ensure it's visible */
+    padding: 5%;
+}
+
+.content {
+    padding: 20px;
+    color: white;
+    text-align: center;
 }
 
 .container {
@@ -276,7 +339,24 @@ color: tan;
     background-color: white;
 }
 
+#center-name {
+    font-size: 2.5vmin;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    /* margin-bottom: 0.2em; */
+    color: black;
+}
+
 #center-title {
+    font-size: 2.5vmin;
+    font-family: Helvetica, Arial, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    /* margin-bottom: 0.2em; */
+    color: black;
+}
+
+#center-year {
     font-size: 2.5vmin;
     font-family: Helvetica, Arial, sans-serif;
     font-weight: bold;
@@ -287,7 +367,7 @@ color: tan;
 #center-body {
     font-size: 2.2vmin;
     font-family: Helvetica, Arial, sans-serif;
-    font-weight: normal;
+    font-weight: bold;
     color: black;
     max-width: 40vw;
     margin: 2.5%;
