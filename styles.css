@@ -16,7 +16,7 @@ button {
     position: absolute;
     top: 10px;
     right: 10px;
-    padding: 10px 20px;
+    padding: 8px 10px;
     font-size: 16px;
     cursor: pointer;
     z-index: 10;
@@ -360,14 +360,14 @@ color: tan;
     font-size: 2.5vmin;
     font-family: Helvetica, Arial, sans-serif;
     font-weight: bold;
-    /* margin-bottom: 0.2em; */
+    margin-bottom: 0.2em;
     color: black;
 }
 
 #center-body {
     font-size: 2.2vmin;
     font-family: Helvetica, Arial, sans-serif;
-    font-weight: bold;
+    /* font-weight: bold; */
     color: black;
     max-width: 40vw;
     margin: 2.5%;
