@@ -1,45 +1,64 @@
-const API_URL = 'https://figuregrid-data.onrender.com/api/figure-grids?populate=image';
+const API_URL = 'https://figuregrid-data.onrender.com/api/figure-grids?populate[image][fields]=url';
+const BASE_URL = 'https://figuregrid-data.onrender.com'; // Base URL of your Strapi instance
 
-
-// Fetch data and populate the DOM
 fetch(API_URL)
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
     .then(data => {
-        const items = data.data; // Array of items
-        const interactiveContainer = document.querySelector('.interactive-container'); // Container for dynamic elements
+        console.log('API Response:', data); // Debug the full API response
 
-        // Loop through items and create DOM elements
+        const items = data.data || [];
+        const interactiveContainer = document.querySelector('.interactive-container');
+
         items.forEach(item => {
-            const attributes = item.attributes;
+            console.log('Processing item:', item); // Debug the item structure
 
-            // Create container
+            // Directly access the fields without assuming `attributes` nesting
+            const classes = item.Classes || 'default-class';
+            const top = item.Top || 0;
+            const left = item.Left || 0;
+            const name = item.Name || 'Unknown';
+            const title = item.Title || 'Untitled';
+            const year = item.Year || 'Unknown Year';
+            const description = item.Description || 'No description available.';
+            const imageField = item.image?.url;
+
+            // Validate critical fields
+            if (!imageField) {
+                console.warn('Skipping item due to missing image data:', item);
+                return; // Skip this item
+            }
+
+            // Construct the full image URL
+            const imageUrl = `${BASE_URL}${imageField}`;
+            console.log('Image URL:', imageUrl); // Debug the image URL
+
+            // Create container element
             const container = document.createElement('div');
-            container.className = attributes.Classes;
-            container.style.top = `${attributes.Top}%`;
-            container.style.left = `${attributes.Left}%`;
+            container.className = classes;
+            container.style.top = `${top}%`;
+            container.style.left = `${left}%`;
 
-            // Set data attributes
-            container.setAttribute('data-name', attributes.Name || 'Unknown');
-            container.setAttribute('data-title', attributes.Title || 'Untitled');
-            container.setAttribute('data-year', attributes.Year || 'Unknown Year');
-            container.setAttribute('data-description', attributes.Description || 'No description available.');
+            // Set data attributes for additional info
+            container.setAttribute('data-name', name);
+            container.setAttribute('data-title', title);
+            container.setAttribute('data-year', year);
+            container.setAttribute('data-description', description);
 
-            // Fetch image URL from Strapi Media Library
-            const imageField = attributes.image; // Replace 'image' with the actual field name in your content type
-            const imageUrl = imageField?.data?.attributes?.url
-                ? `https://your-strapi-url${imageField.data.attributes.url}`
-                : 'default-image.png'; // Default image if no image is provided
-
-            // Add image
+            // Create and append image element
             const img = document.createElement('img');
             img.src = imageUrl;
-            img.alt = attributes.Title || 'Image';
+            img.alt = title;
             container.appendChild(img);
 
-            // Append container to the interactive container
+            // Append container to interactive container
             interactiveContainer.appendChild(container);
 
-            // Add hover and click events
+            // Add hover and click events for interactivity
             container.addEventListener('mouseenter', function () {
                 displayCenterInfo(container);
             });
