@@ -1,4 +1,4 @@
-const API_URL = 'https://figuregrid-data.onrender.com/api/figure-grids';
+const API_URL = 'https://figuregrid-data.onrender.com/api/figure-grids?populate=image';
 
 
 // Fetch data and populate the DOM
