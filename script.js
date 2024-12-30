@@ -96,3 +96,8 @@ function toggleCenterInfo(container) {
         centerDisplay.style.display = 'none';
     }
 }
+
+// Dismiss center display on click
+document.querySelector('.center-display').addEventListener('click', function () {
+    this.style.display = 'none';
+});
