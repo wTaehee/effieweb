@@ -1,53 +1,35 @@
-const imageContainers = document.querySelectorAll('.image-container');
-const centerImage = document.getElementById('center-image');
-const centerName = document.getElementById('center-name');
-const centerTitle = document.getElementById('center-title');
-const centerYear = document.getElementById('center-year');
-const centerBody = document.getElementById('center-body');
-const centerDisplay = document.querySelector('.center-display');
+const API_URL = 'https://figuregrid-data.onrender.com/api/figure-grids';
 
-let isImageClicked = false;
+// Fetch data and populate the DOM
+fetch(API_URL)
+    .then(response => response.json())
+    .then(data => {
+        const items = data.data;
+        const interactiveContainer = document.querySelector('.interactive-container');
 
-imageContainers.forEach(container => {
-    const name = container.getAttribute('data-name');
-    const title = container.getAttribute('data-title');
-    const year = container.getAttribute('data-year');
-    const body = container.getAttribute('data-body');
-    const imageSrc = container.querySelector('img').src;
+        // Create image containers dynamically
+        items.forEach(item => {
+            const attributes = item.attributes;
 
-    // Show image, title, and body on mouseenter
-    container.addEventListener('mouseenter', function () {
-        if (!isImageClicked) {
-            centerImage.src = imageSrc;
-            centerName.textContent = name;
-            centerTitle.textContent = title;
-            centerYear.textContent = year;
-            centerBody.textContent = body;
-            centerDisplay.style.display = 'block';
-        }
-    });
+            // Create container
+            const container = document.createElement('div');
+            container.className = attributes.Classes;
+            container.style.top = `${attributes.Top}%`;
+            container.style.left = `${attributes.Left}%`;
 
-    // Toggle display on click
-    container.addEventListener('click', function () {
-        if (isImageClicked) {
-            centerDisplay.style.display = 'none';
-            isImageClicked = false;
-        } else {
-            centerImage.src = imageSrc;
-            centerName.textContent = name;
-            centerTitle.textContent = title;
-            centerYear.textContent = year;
-            centerBody.textContent = body;
-            centerDisplay.style.display = 'block';
-            isImageClicked = true;
-        }
-    });
-});
+            // Set data attributes
+            container.setAttribute('data-name', attributes.Name || 'Unknown');
+            container.setAttribute('data-title', attributes.Title || 'Untitled');
+            container.setAttribute('data-year', attributes.Year || 'Unknown Year');
+            container.setAttribute('data-description', attributes.Description || 'No description available.');
 
-// Hide display on clicking outside
-document.addEventListener('click', function (event) {
-    if (!event.target.closest('.image-container') && !event.target.closest('.center-display')) {
-        centerDisplay.style.display = 'none';
-        isImageClicked = false;
-    }
-});
+            // Add image
+            const img = document.createElement('img');
+            img.src = attributes.location ? attributes.location.url : 'default-image.png';
+            img.alt = attributes.Title || 'Image';
+
+            container.appendChild(img);
+            interactiveContainer.appendChild(container);
+        });
+    })
+    .catch(error => console.error('Error fetching data:', error));
