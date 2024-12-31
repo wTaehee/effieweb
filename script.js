@@ -13,11 +13,11 @@ fetch(SHEET_API_URL)
     })
     .then(data => {
         const rows = data.values;
-        const headers = rows[0].map(header => header.trim()); // Trim headers for consistency
+        const headers = rows[0]; // First row is the header
         const jsonData = rows.slice(1).map(row => {
             const obj = {};
             row.forEach((value, index) => {
-                obj[headers[index]] = value ? value.trim() : ''; // Trim values to avoid extra spaces
+                obj[headers[index]] = value;
             });
             return obj;
         });
@@ -35,46 +35,49 @@ function renderData(data) {
     const interactiveContainer = document.querySelector('.interactive-container');
 
     data.forEach(item => {
-        // Adjust to match the actual property names in your dataset
         const { name, title, description, image, classes, top, left } = item;
 
         console.log('Processing item:', item);
 
-        // Validate the image URL
-        if (!image || !image.trim().startsWith('https://drive.google.com/uc?export=view&id=')) {
+        // Validate the image URL (ensure it's an Imgur link or valid URL)
+        if (!image || !image.trim().startsWith('https://i.imgur.com/')) {
             console.warn('Skipping item due to missing or invalid ImageURL:', item);
             return;
         }
 
-        console.log('Valid ImageURL:', image);
-
-        // Create container element
+        // Create a container element for the item
         const container = document.createElement('div');
         container.className = classes || 'default-class';
         container.style.top = `${top || 0}%`;
         container.style.left = `${left || 0}%`;
 
-        // Set additional data attributes
+        // Set additional data attributes for interactivity
         container.setAttribute('data-name', name || 'Unknown');
         container.setAttribute('data-title', title || 'Untitled');
         container.setAttribute('data-description', description || 'No description available.');
 
-        // Create and append image element
+        // Create and append the image element
         const img = document.createElement('img');
-        img.src = image.trim(); // Trim to ensure no extra spaces
+        img.src = image.trim();
         img.alt = title || 'Image';
 
-        console.log('Appending image:', img.src);
+        // Log the URL to debug
+        console.log('Image URL:', img.src);
+
+        // Handle image loading errors
+        img.onerror = () => {
+            console.error('Failed to load image:', img.src);
+            img.src = 'https://via.placeholder.com/150'; // Fallback placeholder
+        };
 
         container.appendChild(img);
         interactiveContainer.appendChild(container);
 
-        // Add interactivity
+        // Add hover and click events for interactivity
         container.addEventListener('mouseenter', () => displayCenterInfo(container));
         container.addEventListener('click', () => toggleCenterInfo(container));
     });
 }
-
 
 /**
  * Display the center info when hovering over an item.
