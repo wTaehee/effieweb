@@ -31,7 +31,7 @@ function renderData(data) {
     const interactiveContainer = document.querySelector('.interactive-container');
 
     data.forEach(item => {
-        const { name, title, description, image, classes, top, left } = item;
+        const { name, title, year, description, image, classes, top, left } = item;
 
         if (!image || !image.trim()) {
             console.warn('Skipping item due to missing or invalid ImageURL:', item);
@@ -48,6 +48,7 @@ function renderData(data) {
 
         container.setAttribute('data-name', name || 'Unknown');
         container.setAttribute('data-title', title || 'Untitled');
+        container.setAttribute('data-year', year || 'Unknown');
         container.setAttribute('data-description', description || 'No description available.');
 
         const img = document.createElement('img');
@@ -62,7 +63,7 @@ function renderData(data) {
         container.appendChild(img);
         interactiveContainer.appendChild(container);
 
-        container.addEventListener('mouseenter', () => displayCenterInfo(container));
+        container.addEventListener('click', () => displayCenterInfo(container));
         container.addEventListener('click', () => toggleCenterInfo(container));
     });
 
@@ -82,12 +83,14 @@ function displayCenterInfo(container) {
     const centerImage = document.getElementById('center-image');
     const centerName = document.getElementById('center-name');
     const centerTitle = document.getElementById('center-title');
+    const centerYear = document.getElementById('center-year');
     const centerBody = document.getElementById('center-body');
     const centerDisplay = document.querySelector('.center-display');
 
     centerImage.src = container.querySelector('img').src;
     centerName.textContent = container.getAttribute('data-name');
     centerTitle.textContent = container.getAttribute('data-title');
+    centerYear.textContent = container.getAttribute('data-year');
     centerBody.textContent = container.getAttribute('data-description');
     centerDisplay.style.display = 'block';
 }
