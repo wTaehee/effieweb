@@ -369,6 +369,8 @@ color: tan;
     /* margin-bottom: 0.2em; */
     color: black;
     text-align: center;
+    word-wrap: break-word; /* Handle long words by wrapping */
+    overflow-wrap: break-word; /* Alternate for word-breaking */
 }
 
 #center-year {
@@ -387,6 +389,8 @@ color: tan;
     color: black;
     max-width: 80%;
     margin: 0 auto; /* Center horizontally */
+    word-wrap: break-word; /* Handle long words by wrapping */
+    overflow-wrap: break-word; /* Alternate for word-breaking */
     text-align: center;
     line-height: 1.5;
 }
@@ -470,14 +474,49 @@ color: tan;
         height: 75vmin; 
         aspect-ratio: 2 / 1;
     }
+
+    .center-display {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.1); /* Optional backdrop */
+        z-index: 1000;
+        pointer-events: auto; /* Ensure clicks are allowed */
+        overflow: auto; /* Enable scrolling for overflowing content */
+        padding: 10px; /* Add padding for better spacing */
+    }
+
+    .center-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start; /* Ensure content starts from the top */
+        text-align: center;
+        gap: 8px;
+        z-index: 1010;
+        pointer-events: auto;
+        max-width: 90%; /* Keep it responsive */
+        max-height: 90%; /* Prevent it from spilling out */
+        overflow: auto; /* Allow scrolling for overflowing content */
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px; /* Optional: Rounded corners */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: Shadow for better visibility */
+    }
+
     #center-name {
         font-size: 3vmin;
-    
+        word-wrap: break-word; /* Handle long words by wrapping */
+        overflow-wrap: break-word; /* Alternate for word-breaking */
     }
     
     #center-title {
         font-size: 3vmin;
-  
+        word-wrap: break-word; /* Handle long words by wrapping */
+        overflow-wrap: break-word; /* Alternate for word-breaking */
     }
     
     #center-year {
@@ -487,17 +526,9 @@ color: tan;
     
     #center-body {
         font-size: 3vmin;
- 
+        max-width: 60vw;
     }
-/* 
-    .center-display img {
-        width: 80vmin;
-        height: 80vmin;
-    }
-     */
-    /* .center-display p {
-        font-size: 5vmin;
-    } */
+
 
     .vertical-label-touch {
         top: calc(25% - 8vmin);  /* Adjust vertical position */
@@ -527,9 +558,5 @@ color: tan;
         top: calc(75% + 3vmin);  /* Adjust vertical position */
         }
 
-#center-body {
-            max-width: 60vw;
-        }
-    
 }
 
