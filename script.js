@@ -29,6 +29,8 @@ fetch(SHEET_API_URL)
 
 function renderData(data) {
     const interactiveContainer = document.querySelector('.interactive-container');
+    const centerDisplay = document.querySelector('.center-display');
+    const centerContent = document.querySelector('.center-content');
 
     data.forEach(item => {
         const { name, title, year, description, image, classes, top, left } = item;
@@ -42,9 +44,6 @@ function renderData(data) {
         container.className = classes || 'image-container';
         container.style.top = `${parseFloat(top) || 0}%`;
         container.style.left = `${parseFloat(left) || 0}%`;
-
-        // Store the original top position as a data attribute
-        container.dataset.originalTop = `${parseFloat(top) || 0}`;
 
         container.setAttribute('data-name', name || 'Unknown');
         container.setAttribute('data-title', title || 'Untitled');
@@ -63,18 +62,12 @@ function renderData(data) {
         container.appendChild(img);
         interactiveContainer.appendChild(container);
 
+        // Click event to display center content
         container.addEventListener('click', () => displayCenterInfo(container));
-        container.addEventListener('click', () => toggleCenterInfo(container));
     });
 
-    // Adjust positions for mobile dynamically
-    adjustPositionsForMobile();
-    window.addEventListener('resize', adjustPositionsForMobile);
-
-    // Add click event listener to dismiss center display
-    const centerImage = document.getElementById('center-image');
-    const centerDisplay = document.querySelector('.center-display');
-    centerImage.addEventListener('click', () => {
+    // Add click event to center-content for hiding it
+    centerContent.addEventListener('click', () => {
         centerDisplay.style.display = 'none';
     });
 }
@@ -92,30 +85,6 @@ function displayCenterInfo(container) {
     centerTitle.textContent = container.getAttribute('data-title');
     centerYear.textContent = container.getAttribute('data-year');
     centerBody.textContent = container.getAttribute('data-description');
-    centerDisplay.style.display = 'block';
-}
 
-function toggleCenterInfo(container) {
-    const centerDisplay = document.querySelector('.center-display');
-    if (centerDisplay.style.display === 'none' || centerDisplay.style.display === '') {
-        displayCenterInfo(container);
-    } else {
-        centerDisplay.style.display = 'none';
-    }
-}
-
-// Adjust positions for mobile
-function adjustPositionsForMobile() {
-    const isMobile = window.innerWidth <= 900;
-    const containers = document.querySelectorAll('.interactive-container .image-container');
-
-    containers.forEach(container => {
-        const originalTop = parseFloat(container.dataset.originalTop) || 0;
-        if (isMobile) {
-            container.style.top = `${originalTop + 1.8}%`; // Add 10px offset for mobile
-        } else {
-            // Reset to original value if needed
-            container.style.top = `${originalTop}%`;
-        }
-    });
+    centerDisplay.style.display = 'flex'; // Show the center display
 }

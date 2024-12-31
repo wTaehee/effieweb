@@ -298,12 +298,13 @@ color: tan;
     align-items: center;
     justify-content: center;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    z-index: 5;
-    pointer-events: none;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8); /* Optional backdrop */
+    z-index: 1000;
+    pointer-events: auto; /* Ensure clicks are allowed */
 }
 
 
@@ -311,7 +312,11 @@ color: tan;
     display: flex;
     flex-direction: column;
     align-items: center; /* Center-align all content */
+    justify-content: center; /* Center-aligns all content vertically */
+    text-align: center; /* Center-aligns text */
     gap: 8px; /* Consistent gap between elements */
+    z-index: 1010; /* Higher than the backdrop */
+    pointer-events: auto; /* Allow interaction inside */
 }
 
 .image-wrapper {
@@ -337,6 +342,14 @@ color: tan;
 .text-background {
     padding: 1.25%;
     background-color: white;
+    text-align: center; /* Ensure text within the background is center-aligned */
+    word-wrap: break-word; /* Handle long text by wrapping it to the next line */
+    overflow-wrap: break-word; /* Alternate for word-breaking in modern browsers */
+    display: flex; /* Make it a flex container */
+    flex-direction: column; /* Stack child elements vertically */
+    align-items: center; /* Center-align all child elements */
+    justify-content: center; /* Center content vertically */
+
 }
 
 #center-name {
@@ -345,6 +358,7 @@ color: tan;
     font-weight: bold;
     /* margin-bottom: 0.2em; */
     color: black;
+    text-align: center;
 }
 
 #center-title {
@@ -354,6 +368,7 @@ color: tan;
     font-weight: bold;
     /* margin-bottom: 0.2em; */
     color: black;
+    text-align: center;
 }
 
 #center-year {
@@ -362,6 +377,7 @@ color: tan;
     font-weight: bold;
     margin-bottom: 0.2em;
     color: black;
+    text-align: center;
 }
 
 #center-body {
@@ -369,8 +385,10 @@ color: tan;
     font-family: Helvetica, Arial, sans-serif;
     /* font-weight: bold; */
     color: black;
-    max-width: 40vw;
-    margin: 2.5%;
+    max-width: 80%;
+    margin: 0 auto; /* Center horizontally */
+    text-align: center;
+    line-height: 1.5;
 }
 
 
@@ -450,6 +468,7 @@ color: tan;
 
     .image-wrapper {
         height: 80vmin; /* Adjust the size of the container */
+        aspect-ratio: 1 / 2;
     }
     #center-name {
         font-size: 4vmin;
@@ -470,15 +489,15 @@ color: tan;
         font-size: 4vmin;
  
     }
-
+/* 
     .center-display img {
         width: 80vmin;
         height: 80vmin;
     }
-    
-    .center-display p {
+     */
+    /* .center-display p {
         font-size: 5vmin;
-    }
+    } */
 
     .vertical-label-touch {
         top: calc(25% - 8vmin);  /* Adjust vertical position */
