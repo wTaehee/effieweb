@@ -468,7 +468,7 @@ color: tan;
 
     .image-wrapper {
         height: 80vmin; /* Adjust the size of the container */
-        aspect-ratio: 1 / 2;
+        aspect-ratio: 2 / 1;
     }
     #center-name {
         font-size: 3vmin;
