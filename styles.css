@@ -449,12 +449,12 @@ color: tan;
     }
 
     .center-display img {
-        width: 70vmin;
-        height: 70vmin;
+        width: 74vmin;
+        height: 74vmin;
     }
     
     .center-display p {
-        font-size: 2.8vmin;
+        font-size: 3.2vmin;
     }
 
     .vertical-label-touch {
