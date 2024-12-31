@@ -302,7 +302,7 @@ color: tan;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.2); /* Optional backdrop */
+    background-color: rgba(0, 0, 0, 0.1); /* Optional backdrop */
     z-index: 1000;
     pointer-events: auto; /* Ensure clicks are allowed */
 }
