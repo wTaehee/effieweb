@@ -467,7 +467,7 @@ color: tan;
     }
 
     .image-wrapper {
-        height: 80vmin; /* Adjust the size of the container */
+        height: 75vmin; 
         aspect-ratio: 2 / 1;
     }
     #center-name {
