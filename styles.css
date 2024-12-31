@@ -333,12 +333,6 @@ color: tan;
     object-fit: contain; /* Ensures the image scales without cropping */
 }
 
-/* .center-display img {
-    width: 65vmin;
-    height: 65vmin;
-    object-fit: contain;
-} */
-
 .text-background {
     padding: 1.25%;
     background-color: white;
@@ -476,7 +470,7 @@ color: tan;
     }
 
     .center-display {
-        display: flex;
+        display: none;
         position: fixed;
         top: 0;
         left: 0;
@@ -498,13 +492,10 @@ color: tan;
         gap: 8px;
         z-index: 1010;
         pointer-events: auto;
-        max-width: 90%; /* Keep it responsive */
-        max-height: 90%; /* Prevent it from spilling out */
+        max-width: 100%; /* Keep it responsive */
+        max-height: 100%; /* Prevent it from spilling out */
         overflow: auto; /* Allow scrolling for overflowing content */
-        background-color: white;
-        padding: 20px;
-        border-radius: 8px; /* Optional: Rounded corners */
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: Shadow for better visibility */
+        
     }
 
     #center-name {
