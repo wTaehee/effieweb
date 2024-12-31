@@ -520,6 +520,8 @@ color: tan;
         max-width: 60vw;
     }
 
+    
+
 
     .vertical-label-touch {
         top: calc(25% - 8vmin);  /* Adjust vertical position */
