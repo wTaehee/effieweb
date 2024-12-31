@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
     const SHEET_ID = '1Ae1MR-a96rCaOcCFZ9qg6JLyiYg0gMW5oTqFmZr7UJc';
     const API_KEY = 'AIzaSyBL7h1D_1iuDsjHvoNLjxqM4z2E3a5u-DI';
     const RANGE = 'Sheet1!A1:J500';
@@ -62,12 +62,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
             container.appendChild(img);
             interactiveContainer.appendChild(container);
-
-            // Click event to display center content
-            container.addEventListener('click', () => displayCenterInfo(container));
         });
 
-        // Add click event to center-content for hiding it
+        // Event delegation for click events
+        interactiveContainer.addEventListener('click', (event) => {
+            const container = event.target.closest('.image-container');
+            if (container) {
+                displayCenterInfo(container);
+            }
+        });
+
+        // Click event to hide center display
         centerContent.addEventListener('click', () => {
             centerDisplay.style.display = 'none';
         });
