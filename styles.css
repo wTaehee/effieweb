@@ -419,6 +419,15 @@ color: tan;
 
 /* Media query for mobile view */
 @media only screen and (max-width: 900px) {
+  
+    button {
+        top: 3px;
+        right: 3px;
+        padding: 2px 3px;
+        font-size: 12px;
+    }
+
+
     .label, .vertical-label {
         font-size: 2.2vmin; 
     }

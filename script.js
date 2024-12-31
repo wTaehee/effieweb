@@ -33,17 +33,18 @@ function renderData(data) {
     data.forEach(item => {
         const { name, title, description, image, classes, top, left } = item;
 
-        console.log('Processing item:', item);
-
         if (!image || !image.trim()) {
             console.warn('Skipping item due to missing or invalid ImageURL:', item);
             return;
         }
 
         const container = document.createElement('div');
-        container.className = classes || 'default-class';
+        container.className = classes || 'image-container';
         container.style.top = `${parseFloat(top) || 0}%`;
         container.style.left = `${parseFloat(left) || 0}%`;
+
+        // Store the original top position as a data attribute
+        container.dataset.originalTop = `${parseFloat(top) || 0}`;
 
         container.setAttribute('data-name', name || 'Unknown');
         container.setAttribute('data-title', title || 'Untitled');
@@ -63,6 +64,17 @@ function renderData(data) {
 
         container.addEventListener('mouseenter', () => displayCenterInfo(container));
         container.addEventListener('click', () => toggleCenterInfo(container));
+    });
+
+    // Adjust positions for mobile dynamically
+    adjustPositionsForMobile();
+    window.addEventListener('resize', adjustPositionsForMobile);
+
+    // Add click event listener to dismiss center display
+    const centerImage = document.getElementById('center-image');
+    const centerDisplay = document.querySelector('.center-display');
+    centerImage.addEventListener('click', () => {
+        centerDisplay.style.display = 'none';
     });
 }
 
@@ -87,4 +99,20 @@ function toggleCenterInfo(container) {
     } else {
         centerDisplay.style.display = 'none';
     }
+}
+
+// Adjust positions for mobile
+function adjustPositionsForMobile() {
+    const isMobile = window.innerWidth <= 900;
+    const containers = document.querySelectorAll('.interactive-container .image-container');
+
+    containers.forEach(container => {
+        const originalTop = parseFloat(container.dataset.originalTop) || 0;
+        if (isMobile) {
+            container.style.top = `${originalTop + 1.8}%`; // Add 10px offset for mobile
+        } else {
+            // Reset to original value if needed
+            container.style.top = `${originalTop}%`;
+        }
+    });
 }
