@@ -448,13 +448,36 @@ color: tan;
         font-size: 2.2vmin;
     }
 
+    .image-wrapper {
+        height: 80vmin; /* Adjust the size of the container */
+    }
+    #center-name {
+        font-size: 4vmin;
+    
+    }
+    
+    #center-title {
+        font-size: 4vmin;
+  
+    }
+    
+    #center-year {
+        font-size: 4vmin;
+      
+    }
+    
+    #center-body {
+        font-size: 4vmin;
+ 
+    }
+
     .center-display img {
-        width: 74vmin;
-        height: 74vmin;
+        width: 80vmin;
+        height: 80vmin;
     }
     
     .center-display p {
-        font-size: 3.2vmin;
+        font-size: 5vmin;
     }
 
     .vertical-label-touch {
